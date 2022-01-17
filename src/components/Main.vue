@@ -1,7 +1,18 @@
 <template>
   <main>
-      main
-     <MainAlbum /> 
+      <div class="container">
+          <div class="row">
+              <MainAlbum
+                    v-for="(cardMusic, index) in cardMusics"
+                    :key="index"
+                    :src = "cardMusics.poster"
+                    :alt = "cardMusics.title"
+                    :author = "cardMusic.author"
+                    :genre = "cardMusic.genre"
+                    :year = "cardMusic.year" 
+              /> 
+          </div>
+      </div>
   </main>
 </template>
 
@@ -15,15 +26,15 @@ export default {
     },
     data () {
         return {
-            cardMusic: null,
+            cardMusics: null,
         }
     },
     mounted() {
             axios
             .get("https://flynn.boolean.careers/exercises/api/array/music")
             .then((response) => {
-                this.cardMusic = response.data.response;
-                console.log(this.cardMusic);
+                this.cardMusics = response.data.response;
+                console.log(this.cardMusics.poster);
             })
             .catch(function (error) {
                 console.log(error);
