@@ -1,13 +1,18 @@
 <template>
   <main>
       main
+     <MainAlbum /> 
   </main>
 </template>
 
 <script>
 import axios from 'axios';
+import MainAlbum from "./MainAlbum.vue"
 export default {
     name: 'Main',
+    components: {
+        MainAlbum,
+    },
     data () {
         return {
             cardMusic: null,
