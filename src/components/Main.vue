@@ -2,6 +2,7 @@
   <main class="container-fluid">
       <div class="container">
           <div class="row p-5" v-if="cardMusics">
+              <!-- elemento che potrà essere riutilizzato -->
               <MainAlbum
                     v-for="(cardMusic, index) in cardMusics"
                     :key="index"
@@ -20,15 +21,19 @@
 </template>
 
 <script>
+//azios
 import axios from 'axios';
+//importo elemento figlio
 import MainAlbum from "./MainAlbum.vue"
 export default {
     name: 'Main',
+    //metto elemento figlio
     components: {
         MainAlbum,
     },
     data () {
         return {
+            //conterrà tutti gli elementi dell'api
             cardMusics: null,
         }
     },
@@ -37,8 +42,8 @@ export default {
             axios
             .get("https://flynn.boolean.careers/exercises/api/array/music")
             .then((response) => {
+                //guardare bene il collegamento
                 this.cardMusics = response.data.response;
-                console.log(this.cardMusics.poster);
             })
             .catch(function (error) {
                 console.log(error);

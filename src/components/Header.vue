@@ -18,10 +18,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+//importare elementi scss
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
 @import "../assets/scss/partials/_header.scss";
 .container-fluid {
+    //elemento mixin header.scss
     @include container (50px, 100%);
 }
 </style>

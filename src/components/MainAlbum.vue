@@ -1,5 +1,7 @@
 <template>
+<!-- elemento figlio di Main -->
   <div class="col-2">
+    <!-- elementi celesti collegati al propr prenderanno le informazioni dal Main.vue -->
     <img class="title-image"
     :src="src"
     :alt="alt">
