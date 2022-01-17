@@ -51,13 +51,11 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_main.scss";
 .container-fluid {
     background-color: $mainColor;
 }
 .box-loading {
-    height: 100vh;
-    .loading {
-        color: white;
-    }
+    @include box-loading (100vh, white);
 }
 </style>

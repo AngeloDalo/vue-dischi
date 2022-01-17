@@ -1,0 +1,6 @@
+@mixin box-loading ($height, $color) {
+    height: $height;
+    .loading {
+        color: $color;
+    }
+}

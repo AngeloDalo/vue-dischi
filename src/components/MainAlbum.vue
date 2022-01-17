@@ -24,27 +24,8 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_mainAlbum.scss";
 .col-2 {
-    background-color: $boxAlbumColor;
-    margin-right: 2em;
-    margin-bottom: 2em;
-    padding-bottom: 2em;
-    img {
-        width: 100%;
-        margin-bottom: 1em;
-    }
-    h1 {
-        color: white;
-        text-transform: uppercase;
-        font-size: 1em;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 2em;
-    }
-    p {
-        text-align: center;
-        margin-bottom: 0em;
-        color: grey;
-    }
+    @include col-2 (2em, 2em, 2em, 100%, 1em,white, uppercase, 1em, bold, center, 2em, center, 0em, grey);
 }
 </style>

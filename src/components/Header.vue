@@ -20,11 +20,8 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_header.scss";
 .container-fluid {
-    background-color: $headerColor;
-    height: 50px;
-    img {
-        height: 100%;
-    }
+    @include container (50px, 100%);
 }
 </style>

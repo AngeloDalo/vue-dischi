@@ -1,0 +1,23 @@
+@mixin col-2 ($margin-r, $margin-b, $padding-b, $width, $margin-b-img, $color-h1, $text-t, $font-s, $font-w, $text-a, $margin-b-h1, $text-align-p, $margin-bottom-p, $color-p) {
+    background-color: $boxAlbumColor;
+    margin-right: $margin-r;
+    margin-bottom: $margin-b;
+    padding-bottom: $padding-b;
+    img {
+        width: $width;
+        margin-bottom: $margin-b-img;
+    }
+    h1 {
+        color: $color-h1;
+        text-transform: $text-t;
+        font-size: $font-s;
+        font-weight: $font-w;
+        text-align: $text-a;
+        margin-bottom:  $margin-b-h1;
+    }
+    p {
+        text-align: $text-align-p;
+        margin-bottom: $margin-bottom-p;
+        color: $color-p;
+    }
+}

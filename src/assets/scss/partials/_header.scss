@@ -1,0 +1,7 @@
+@mixin container ($heigth, $heightImg) {
+    background-color: $headerColor;
+    height: $heigth;
+    img {
+        height: $heightImg;
+    }
+}
