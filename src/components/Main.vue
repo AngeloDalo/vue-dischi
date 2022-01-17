@@ -1,7 +1,7 @@
 <template>
   <main class="container-fluid">
       <div class="container">
-          <div class="row p-5">
+          <div class="row p-5" v-if="cardMusics">
               <MainAlbum
                     v-for="(cardMusic, index) in cardMusics"
                     :key="index"
@@ -11,6 +11,9 @@
                     :author = "cardMusic.author"
                     :year = "cardMusic.year" 
               /> 
+          </div>
+          <div v-else>
+              <h1 class="loading">Caricamento...</h1>
           </div>
       </div>
   </main>
@@ -29,7 +32,8 @@ export default {
             cardMusics: null,
         }
     },
-    mounted() {
+    created() {
+        setTimeout (() => {
             axios
             .get("https://flynn.boolean.careers/exercises/api/array/music")
             .then((response) => {
@@ -39,6 +43,7 @@ export default {
             .catch(function (error) {
                 console.log(error);
             });
+        }, 1000);
     },
 }
 </script>
@@ -48,5 +53,8 @@ export default {
 @import "../assets/scss/partials/_commons.scss";
 .container-fluid {
     background-color: $mainColor;
+}
+.loading {
+    color: white;
 }
 </style>
