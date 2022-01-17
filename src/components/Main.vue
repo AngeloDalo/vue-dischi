@@ -1,14 +1,14 @@
 <template>
-  <main>
+  <main class="container-fluid">
       <div class="container">
-          <div class="row">
+          <div class="row p-5">
               <MainAlbum
                     v-for="(cardMusic, index) in cardMusics"
                     :key="index"
-                    :src = "cardMusics.poster"
+                    :src = "cardMusics[index].poster"
                     :alt = "cardMusics.title"
+                    :title = "cardMusic.title"
                     :author = "cardMusic.author"
-                    :genre = "cardMusic.genre"
                     :year = "cardMusic.year" 
               /> 
           </div>
@@ -46,4 +46,7 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+.container-fluid {
+    background-color: $mainColor;
+}
 </style>
