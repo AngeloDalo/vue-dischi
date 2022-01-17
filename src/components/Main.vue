@@ -12,7 +12,7 @@
                     :year = "cardMusic.year" 
               /> 
           </div>
-          <div v-else>
+          <div class="box-loading" v-else>
               <h1 class="loading">Caricamento...</h1>
           </div>
       </div>
@@ -54,7 +54,10 @@ export default {
 .container-fluid {
     background-color: $mainColor;
 }
-.loading {
-    color: white;
+.box-loading {
+    height: 100vh;
+    .loading {
+        color: white;
+    }
 }
 </style>
