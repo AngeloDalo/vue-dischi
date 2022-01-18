@@ -1,5 +1,6 @@
 <template>
     <div class="search">
+        <!-- change controlla cambiamenti select, inputText prende valore select tramite v-model -->
         <select name="genre" @change="$emit('changeGenre', inputText)" class="form-control" v-model="inputText">
             <option value="All">All</option>
             <option value="Rock">Rock</option>

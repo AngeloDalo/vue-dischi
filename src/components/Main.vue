@@ -3,6 +3,7 @@
       <div class="container">
           <div class="row">
                 <div class="col-12">
+                    <!-- event + inputText di Search.vue-->
                     <Search
                         @changeGenre="searchAlbum($event)"
                     />
@@ -13,8 +14,8 @@
               <MainAlbum
                     v-for="(cardMusic, index) in filteredGenre"
                     :key="index"
-                    :src = "cardMusics.poster"
-                    :alt = "cardMusics.title"
+                    :src = "cardMusic.poster"
+                    :alt = "cardMusic.title"
                     :title = "cardMusic.title"
                     :author = "cardMusic.author"
                     :year = "cardMusic.year" 
@@ -72,6 +73,7 @@ export default {
     },
     methods: {
         searchAlbum(event) {
+            //genreSearch prende valore di event che corrisponde ad inputText di Search.vue
             this.genreSearch = event;
         }
     }
