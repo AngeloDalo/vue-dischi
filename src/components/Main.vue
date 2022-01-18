@@ -1,12 +1,19 @@
 <template>
   <main class="container-fluid">
       <div class="container">
+          <div class="row">
+                <div class="col-12">
+                    <Search
+                        @changeGenre="searchAlbum($event)"
+                    />
+                </div>
+          </div>
           <div class="row p-5" v-if="cardMusics">
               <!-- elemento che potrà essere riutilizzato -->
               <MainAlbum
-                    v-for="(cardMusic, index) in cardMusics"
+                    v-for="(cardMusic, index) in filteredGenre"
                     :key="index"
-                    :src = "cardMusics[index].poster"
+                    :src = "cardMusics.poster"
                     :alt = "cardMusics.title"
                     :title = "cardMusic.title"
                     :author = "cardMusic.author"
@@ -25,19 +32,32 @@
 import axios from 'axios';
 //importo elemento figlio
 import MainAlbum from "./MainAlbum.vue"
+import Search from "./Search.vue"
 export default {
     name: 'Main',
     //metto elemento figlio
     components: {
         MainAlbum,
+        Search,
     },
     data () {
         return {
             //conterrà tutti gli elementi dell'api
+            genreSearch: 0,
             cardMusics: null,
         }
     },
+    computed: {
+        filteredGenre() {
+            if (this.genreSearch == 0 || this.genreSearch == 'All') {
+                return this.cardMusics;
+            } else {
+                return  this.cardMusics.filter((element) => element.genre.includes(this.genreSearch));
+            }
+        }
+    },
     created() {
+        console.log(this.genreSearch);
         setTimeout (() => {
             axios
             .get("https://flynn.boolean.careers/exercises/api/array/music")
@@ -50,6 +70,11 @@ export default {
             });
         }, 1000);
     },
+    methods: {
+        searchAlbum(event) {
+            this.genreSearch = event;
+        }
+    }
 }
 </script>
 
